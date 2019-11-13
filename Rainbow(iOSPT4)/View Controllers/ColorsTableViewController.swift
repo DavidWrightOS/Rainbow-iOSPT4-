@@ -10,37 +10,36 @@ import UIKit
 
 class ColorsTableViewController: UITableViewController {
 
+    var colors: [MyColor] = [MyColor(name: "Red", color: .red),
+                             MyColor(name: "Orange", color: .orange),
+                             MyColor(name: "Yellow", color: .yellow),
+                             MyColor(name: "Green", color: .green),
+                             MyColor(name: "Blue", color: .blue),
+                             MyColor(name: "Cyan", color: .cyan),
+                             MyColor(name: "Purple", color: .purple)]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    // These are our 2 Required Data Source Methods!!!!! Must haves!!!!
+    // How many rows in the tableview??
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return colors.count
     }
 
-    /*
+    // What data is in each cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ColorCell", for: indexPath)
+        
+        let color = colors[indexPath.row]
+        cell.textLabel?.text = color.name
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
